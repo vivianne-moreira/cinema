@@ -1,5 +1,4 @@
 module.exports = {
-  // ...
   chainWebpack: config => {
     config.module
       .rule('ts')
@@ -11,6 +10,5 @@ module.exports = {
         return options;
       });
   },
-  // ...
 };
 

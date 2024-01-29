@@ -1,34 +1,24 @@
-// main.js
-import { createApp } from 'vue';
-import App from './App.vue';
-import { createRouter, createWebHistory } from 'vue-router';
-
-// Importe seus componentes aqui
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeApp from '@/components/HomeApp.vue';
-import SalaComponent from './components/SalaComponent.vue';
-import FilmeComponent from './components/FilmeComponent.vue';
+import ListaSalas from '@/components/ListaSalas.vue';
+import ListaFilmes from '@/components/ListaFilmes.vue';
+import FilmeComponent from '@/components/FilmeComponent.vue';
+import SalaComponent from '@/components/SalaComponent.vue';
 
-// Use o VueRouter
-const routes = [
-    { path: '/', component: HomeApp },
-    { path: '/sala/:id', component: SalaComponent },
-    { path: '/filme/:id', component: FilmeComponent },
-    // Adicione mais rotas conforme necessário
-  ];
+// Restante do código...
+
+// Defina suas rotas
+const routes: Array<RouteRecordRaw> = [
+  { path: '/', component: HomeApp, name: 'home' },
+  { path: '/salas', component: ListaSalas, name: 'salas' },
+  { path: '/filmes', component: ListaFilmes, name: 'filmes' },
+  { path: '/filme/:id', component: FilmeComponent, name: 'filme' },
+  { path: '/sala/:id', component: SalaComponent, name: 'sala' },
+];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-    
+  history: createWebHistory(),
+  routes,
 });
 
-const app = createApp(App);
-
 export default router;
-
-// Use o VueRouter no aplicativo
-app.use(router);
-
-// Monte o aplicativo
-app.mount('#app');
-
