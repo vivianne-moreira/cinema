@@ -3,7 +3,7 @@
     <h2 class="h2">Lista de Filmes</h2>
     <ul class="filme-list">
       <li v-for="(filme, index) in filmes" :key="filme.id" class="filme" :style="{ marginBottom: isUltimoFilmeSemSala(filme, index) ? '20px' : '0' }">
-    <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-imagem" />
+        <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-imagem" />
         <div class="filme-titulo">
           {{ filme.nome }} - {{ filme.diretor }} - Duração: {{ filme.duracao }} minutos
         </div>
@@ -15,6 +15,7 @@
           <ul class="sala-lista">
             <li v-for="sala in filme.salas" :key="sala.id">
               {{ sala.nome }}
+              <p></p>
             </li>
           </ul>
         </div>
@@ -49,12 +50,12 @@ export default defineComponent({
   data() {
     return {
       filmes: [
-      { id: 1, nome: 'Filme A', diretor: 'Diretor A', duracao: 120, imagem: 'filmeA.jpeg', descricao: 'Descrição do Filme A', salas: [{ id: 1, nome: 'Sala 1' }] },
-      { id: 2, nome: 'Filme B', diretor: 'Diretor B', duracao: 90, imagem: 'filmeB.jpeg', descricao: 'Descrição do Filme B', salas: [{ id: 1, nome: 'Sala 1' }] },
-      { id: 3, nome: 'Filme C', diretor: 'Diretor C', duracao: 150, imagem: 'filmeC.jpeg', descricao: 'Descrição do Filme C', salas: [{ id: 2, nome: 'Sala 2' }] },
-      { id: 4, nome: 'Filme D', diretor: 'Diretor D', duracao: 110, imagem: 'filmeD.jpeg', descricao: 'Descrição do Filme D', salas: [{ id: 2, nome: 'Sala 2' }] },
-      { id: 5, nome: 'Filme E', diretor: 'Diretor E', duracao: 105, imagem: 'filmeE.jpeg', descricao: 'Descrição do Filme E', salas: [] },
-      { id: 6, nome: 'Filme F', diretor: 'Diretor F', duracao: 95, imagem: 'filmeF.jpeg', descricao: 'Descrição do Filme F', salas: [] },     
+      { id: 1, nome: 'It - A Coisa', diretor: 'Andy Muschietti', duracao: 120, imagem: 'filmeA.jpeg', descricao: 'Em It - A Coisa, um grupo de sete adolescentes de Derry, uma cidade no Maine, formam o auto-intitulado "Losers Club" - o clube dos perdedores. A pacata rotina da cidade é abalada quando crianças começam a desaparecer e tudo o que pode ser encontrado delas são partes de seus corpos. Logo, os integrantes do "Losers Club" acabam ficando face a face com o responsável pelos crimes: o palhaço Pennywise.', salas: [{ id: 1, nome: 'Sala 1' }] },
+      { id: 2, nome: 'Carrie - A Estranha', diretor: 'Brian De Palma', duracao: 90, imagem: 'filmeB.jpeg', descricao: 'Carietta White (Chloë Grace Moretz) sempre foi oprimida pela sua mãe, Margaret (Julianne Moore), uma fanática religiosa. Além dos maus tratos em casa, Carrie também sofre com o abuso dos colegas de escola, que nunca compreenderam sua aparência nem seu comportamento. Ridicularizada por todos, aos poucos ela descobre que possui estranhos poderes telecinéticos, que se manifestam com força total durante sua festa de formatura.', salas: [{ id: 1, nome: 'Sala 1' }] },
+      { id: 3, nome: 'Invocação do Mal', diretor: 'James Wan', duracao: 150, imagem: 'filmeC.jpeg', descricao: 'Harrisville, Estados Unidos. Um casal (Ron Livinston e Lili Taylor) muda para uma casa nova ao lado de suas cinco filhas. Inexplicavelmente, estranhos acontecimentos começam a assustar as crianças, o pai e, principalmente, a mãe. Preocupada com algumas manchas que aparecem em seu corpo e com uma sequência de sustos que levou, ela decide procurar um famoso casal de investigadores paranormais (Patrick Wilson e Vera Farmiga), mas eles não aceitam o convite, acreditando ser somente mais um engano de pessoas apavoradas com canos que fazem barulhos durante a noite ou coisas do gênero. Porém, quando eles aceitam fazer uma visita ao local, descobrem que algo muito poderoso e do mal reside ali. Agora, eles precisam descobrir o que é e o porquê daquilo tudo acontecendo com os membros daquela família. É quando o passado começa a revelar uma entidade demoníaca querendo continuar sua trajetória de maldades.', salas: [{ id: 2, nome: 'Sala 2' }] },
+      { id: 4, nome: 'Terror no Pântano', diretor: 'Adam Green', duracao: 110, imagem: 'filmeD.jpeg', descricao: 'Um grupo heterogêneo de turistas embarca em um passeio de barco pelos pântanos assombrados da Louisiana, onde eles aprendem o conto aterrorizante da lenda local "Victor Crowley", um homem terrivelmente desfigurado que foi morto acidentalmente com um machado pelas mãos de seu próprio pai. Mas quando o barco afunda e a história de fantasmas se torna real, o grupo tenta desesperadamente escapar do pântano com vida - e inteiros.', salas: [{ id: 2, nome: 'Sala 2' }] },
+      { id: 5, nome: 'Ghoul', diretor: 'Phanton Films ', duracao: 105, imagem: 'filmeE.jpeg', descricao: 'Ao ser confrontado em um centro de interrogatório militar, um prisioneiro vira o jogo a seu favor e expõe os segredos mais vergonhosos de seus inquisidores. É possível lutar contra os demônios desse mundo. Mas e quanto aos que não pertencem a ele?', salas: [] },
+      { id: 6, nome: 'O Exorcista', diretor: 'William Friedkin', duracao: 95, imagem: 'filmeF.jpeg', descricao: 'Em Georgetown, Washington, uma atriz vai gradativamente tomando consciência que a sua filha de doze anos está tendo um comportamento completamente assustador. Deste modo, ela pede ajuda a um padre, que também um psiquiatra, e este chega a conclusão de que a garota está possuída pelo demônio. Ele solicita então a ajuda de um segundo sacerdote, especialista em exorcismo, para tentar livrar a menina desta terrível possessão.', salas: [] },     
       ] as Filme[],
     };
   },
@@ -68,60 +69,66 @@ export default defineComponent({
 
 <style scoped>
 .filme-imagem {
-  max-width: 100%;
+  max-width: 200%;
   height: auto;
-  width: 100%; /* Ajuste a largura conforme necessário */
-  max-height: 600px; /* Ajuste a altura máxima conforme necessário */
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .filme-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .h2 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-size: 1.8rem;
 }
 
 .filme-list {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 .filme {
   width: 100%;
+  max-width: 300px;
   border: 2px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.filme-info {
-  padding: 20px;
+  margin: 10px;
 }
 
 .filme-titulo {
-  font-size: 1.5em;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .filme-descricao {
-  margin-top: 10px;
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #555;
 }
 
 .sala-list {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .sala-list-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .sala-lista {
@@ -133,6 +140,6 @@ export default defineComponent({
 }
 
 .espaco-footer {
-  height: 45px; /* Altura desejada para o espaço entre detalhes e o footer */
+  height: 70px;
 }
 </style>

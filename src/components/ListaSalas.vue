@@ -3,7 +3,6 @@
     <h2 class="sala-list-title">Lista de Salas</h2>
     <div v-for="sala in salas" :key="sala.id" class="sala-block">
       <div @click="toggleDetails(sala.id)" class="sala-header">
-        <img :src="'sala.imagem'" alt="Imagem da sala" class="sala-imagem" />
         {{ sala.nome }} - Tipo: {{ sala.tipo }}
       </div>
       <!-- Renderiza os detalhes da sala diretamente aqui -->
@@ -49,7 +48,6 @@ export default defineComponent({
           nome: 'Sala 1',
           descricao: 'Descrição',
           tipo: 'Plus',
-          imagem: '/src/assets/imagemsala/sala1.jpeg',
           filmes: [
             { id: 1, nome: 'Filme A', diretor: 'Diretor A', duracao: 120 },
             { id: 2, nome: 'Filme B', diretor: 'Diretor B', duracao: 90 },
@@ -60,7 +58,6 @@ export default defineComponent({
           nome: 'Sala 2',
           descricao: 'Descrição',
           tipo: '4DX',
-          imagem: '/src/assets/imagemsala/sala2.png',
           filmes: [
             { id: 3, nome: 'Filme C', diretor: 'Diretor C', duracao: 150 },
             { id: 4, nome: 'Filme D', diretor: 'Diretor D', duracao: 110 },
@@ -71,7 +68,6 @@ export default defineComponent({
           nome: 'Sala 3',
           descricao: 'Descrição',
           tipo: '2D',
-          imagem: '/ssc/assets/imagemsala/sala3.jpeg',
           filmes: [
             { id: 3, nome: 'Filme A', diretor: 'Diretor A', duracao: 120 },
             { id: 3, nome: 'Filme A', diretor: 'Diretor A', duracao: 120 },
@@ -82,7 +78,6 @@ export default defineComponent({
           nome: 'Sala 4',
           descricao: 'Descrição',
           tipo: '3D',
-          imagem: '/src/assets/imagemsala/sala4.jpg',
           filmes: [
             { id: 4, nome: 'Filme B', diretor: 'Diretor B', duracao: 90 },
             { id: 4, nome: 'Filme D', diretor: 'Diretor D', duracao: 110 },
@@ -136,6 +131,6 @@ export default defineComponent({
 }
 
 .espaço-em-branco {
-  height: 20px; /* Altura desejada para o espaço em branco após as informações */
+  height: 150px; /* Altura desejada para o espaço em branco após as informações */
 }
 </style>

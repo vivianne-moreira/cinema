@@ -2,26 +2,29 @@
   <div class="home-app">
     <div class="welcome-section">
       <h1>Seja Bem-Vindo ao Cinema Vue</h1>
-      <p>
+      <p class="info-string">
         Descubra os melhores filmes em cartaz e aproveite a experiência única
         do nosso cinema. Cinema Vue, experiência única!
       </p>
     </div>
 
     <div class="featured-section">
-      <h2>Destaques</h2>
-      <b-carousel>
-        <b-carousel-slide v-for="filme in filmesMaisVistos" :key="filme.id">
-          <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-iimg" />          
-          <h3>{{ filme.nome }}</h3>
-          <p>{{ filme.descricao }}</p>
+      <h2 class="h2">Destaques</h2>
+      <b-carousel class="featured-carousel">
+        <b-carousel-slide :key="0" class="carousel-slide">
+          <div class="filme-content">
+            <div v-for="filme in filmesMaisVistos" :key="filme.id" class="filme-item">
+              <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-img-carousel" />
+              <h3>{{ filme.nome }}</h3>
+            </div>
+          </div>
         </b-carousel-slide>
       </b-carousel>
     </div>
 
     <div class="info-section">
       <h2>Mais Informações</h2>
-      <p>
+      <p class="info-description">
         Conheça nossas salas de última geração, equipadas com tecnologia de
         ponta para proporcionar a melhor experiência cinematográfica. Disponíveis salas 
         4Dx e Plus, além das tradicionais 2D e 3D. Aproveite!
@@ -30,12 +33,16 @@
 
     <div class="options-section">
       <h2 class="section-title">Explore</h2>
-      <router-link to="/salas">Ver Salas Disponíveis</router-link>
-      <br />
-      <router-link to="/filmes">Ver Filmes em Cartaz</router-link>
+      <div class="explore-container"></div>
+      <div>
+        <router-link to="/salas" class="explore-link">
+          <button class="explore-button">Ver Salas Disponíveis</button>
+        </router-link>
+      </div>
+      <router-link to="/filmes" class="explore-link">
+        <button class="explore-button">Ver Filmes em Cartaz</button>
+      </router-link>
     </div>
-
-    <router-view></router-view>
   </div>
 </template>
 
@@ -46,9 +53,8 @@ export default defineComponent({
   data() {
     return {
       filmesMaisVistos: [
-        { id: 1, nome: 'Filme 1', descricao: 'Descrição do Filme 1', imagem: 'filmeA.jpeg' },
-        { id: 2, nome: 'Filme 2', descricao: 'Descrição do Filme 2', imagem: 'filmeB.jpeg' },
-        // Adicione mais filmes conforme necessário
+        { id: 1, nome: 'It - A Coisa', imagem: 'filmeA.jpeg' },
+        { id: 2, nome: 'Carrie - A Estranha', imagem: 'filmeB.jpeg' },
       ],
     };
   },
@@ -56,13 +62,39 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.filme-img {
+.filme-img-carousel {
   max-width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  width: 100%;
+  max-height: 300px;
 }
 
-.section-title {
+.carousel-slide {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.featured-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featured-carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.filme-content {
+  display: flex;
+}
+
+.filme-item {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.h2 {
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -73,6 +105,7 @@ export default defineComponent({
   align-items: center;
   text-align: center;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .welcome-section,
@@ -99,22 +132,31 @@ h2 {
 
 .explore-link {
   text-decoration: none;
+}
+
+.explore-button {
+  display: block;
+  width: 250px;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
   color: #fff;
   background-color: #09b38b;
-  padding: 10px 20px;
+  border: none;
   border-radius: 5px;
-  margin-bottom: 50px;
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.explore-link:hover {
+.explore-button:hover {
   background-color: #fff;
   color: #09b38b;
+  border: 1px solid #09b38b;
 }
 
 .home-app::after {
   content: '';
   display: block;
-  height: 30px;
+  height: 50px;
 }
 </style>
