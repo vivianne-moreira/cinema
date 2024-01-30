@@ -20,7 +20,7 @@
           </ul>
         </div>
         <div v-else class="sala-list">
-          <p class="sala-list-title">Nenhuma sala disponível para este filme.</p>
+          <p class="sala-list-title">Nenhuma sala disponível para este filme.</p> <p></p>
         </div>
       </li>
     </ul>
@@ -66,10 +66,9 @@ export default defineComponent({
   },
 });
 </script>
-
 <style scoped>
 .filme-imagem {
-  max-width: 200%;
+  max-width: 100%;
   height: auto;
   width: 100%;
   border-top-left-radius: 10px;
@@ -77,21 +76,21 @@ export default defineComponent({
 }
 
 .filme-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 1000px;
-  width: 100%;
+  max-width: 800px;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .h2 {
-  text-align: center;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 30px;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .filme-list {
@@ -102,11 +101,11 @@ export default defineComponent({
 
 .filme {
   width: 100%;
-  max-width: 300px;
-  border: 2px solid #ddd;
+  max-width: 750px;
+  border: 2px solid transparent;
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px;
+  justify-content: center;
 }
 
 .filme-titulo {
@@ -140,6 +139,6 @@ export default defineComponent({
 }
 
 .espaco-footer {
-  height: 70px;
+  height: 30px;
 }
 </style>
