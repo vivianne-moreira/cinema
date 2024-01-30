@@ -3,7 +3,7 @@
     <h2 class="h2">Lista de Filmes</h2>
     <ul class="filme-list">
       <li v-for="(filme, index) in filmes" :key="filme.id" class="filme" :style="{ marginBottom: isUltimoFilmeSemSala(filme, index) ? '20px' : '0' }">
-        <img :src="require(`@/assets/imagemfilme/${filme.imagem}`).default" alt="Imagem do Filme" width="100" height="150" class="filme-imagem" />        
+    <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-imagem" />
         <div class="filme-titulo">
           {{ filme.nome }} - {{ filme.diretor }} - Duração: {{ filme.duracao }} minutos
         </div>
@@ -67,6 +67,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.filme-imagem {
+  max-width: 100%;
+  height: auto;
+  width: 100%; /* Ajuste a largura conforme necessário */
+  max-height: 600px; /* Ajuste a altura máxima conforme necessário */
+}
+
 .filme-container {
   display: flex;
   flex-direction: column;
@@ -87,21 +94,18 @@ export default defineComponent({
 
 .filme {
   width: 100%;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
   margin-bottom: 20px;
-  box-sizing: border-box;
 }
 
-.filme-imagem {
-  width: 100px;
-  height: 150px;
-  margin-top: 10px;
+.filme-info {
+  padding: 20px;
 }
 
 .filme-titulo {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -111,29 +115,21 @@ export default defineComponent({
 }
 
 .sala-list {
-  margin-bottom: 20px;
-  text-align: center;
+  margin-top: 20px;
 }
 
 .sala-list-title {
-  font-size: 1rem;
-  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .sala-lista {
-  width: 100%;
   list-style-type: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.sala-item {
-  width: 100%;
-  margin-top: 5px;
-  text-align: center;
 }
 
 .espaco-footer {

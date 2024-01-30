@@ -12,7 +12,7 @@
       <h2>Destaques</h2>
       <b-carousel>
         <b-carousel-slide v-for="filme in filmesMaisVistos" :key="filme.id">
-          <img :src="filme.imagem" alt="Imagem do Filme" class="d-block w-100" />
+          <img :src="require(`@/assets/imagemfilme/${filme.imagem}`)" alt="Imagem do Filme" class="filme-iimg" />          
           <h3>{{ filme.nome }}</h3>
           <p>{{ filme.descricao }}</p>
         </b-carousel-slide>
@@ -46,9 +46,9 @@ export default defineComponent({
   data() {
     return {
       filmesMaisVistos: [
-        { id: 1, nome: 'Filme A', descricao: 'Descrição do Filme A', imagem: 'src/assets/imagemfilme/filmeA.jpeg' },
-        { id: 2, nome: 'Filme B', descricao: 'Descrição do Filme B', imagem: 'src/assets/imagemfilme/filmeB.jpeg' },
-        // ...
+        { id: 1, nome: 'Filme 1', descricao: 'Descrição do Filme 1', imagem: 'filmeA.jpeg' },
+        { id: 2, nome: 'Filme 2', descricao: 'Descrição do Filme 2', imagem: 'filmeB.jpeg' },
+        // Adicione mais filmes conforme necessário
       ],
     };
   },
@@ -56,10 +56,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.filme-img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .section-title {
   font-size: 2rem;
   margin-bottom: 10px;
 }
+
 .home-app {
   display: flex;
   flex-direction: column;
